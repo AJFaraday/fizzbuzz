@@ -1,0 +1,9 @@
+if [ -f /etc/sysconfig/fizzbuzz ]; then
+    . /etc/sysconfig/fizzbuzz
+    cd $FIZZBUZZ_ROOT
+else
+    echo "No /etc/sysconfig/fizzbuzz file system is not configured"
+fi
+
+echo "WE GOT TO THE COMMAND"
+echo "Running $0 $1 $2 $3"

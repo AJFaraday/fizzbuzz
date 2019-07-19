@@ -1,0 +1,20 @@
+<h1>Current Jobs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Created At</th>
+      <th>Class</th>
+      <th>Arguments</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @jobs.each do |job| %>
+      <tr>
+        <td><%= link_to(job.created_at, job_path(job)) %></td>
+        <td><%= job.job_class %></td>
+        <td><%= job.args.inspect %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

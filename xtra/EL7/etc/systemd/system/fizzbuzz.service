@@ -1,0 +1,17 @@
+[Unit]
+Description=Fizzbuzz Job scheduler
+After=network.target
+
+[Service]
+Type=simple
+User=ajfaraday
+Group=ajfaraday
+EnvironmentFile=/etc/sysconfig/fizzbuzz
+ExecStart=/usr/bin/bash -lc '/home/ajfaraday/work/job_test/bin/load_env.rb'
+PIDFile=/var/run/fizzbuzz/%i.pid
+# Give a reasonable amount of time for the server to start up/shut down
+TimeoutSec=300
+
+[Install]
+WantedBy=multi-user.target
+

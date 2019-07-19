@@ -1,0 +1,37 @@
+<%= form_for(@fizz_buzz) do |f| %>
+  <% if @fizz_buzz.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@fizz_buzz.errors.count, "error") %> prohibited this fizz_buzz from being saved:</h2>
+
+      <ul>
+      <% @fizz_buzz.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :fizz %><br>
+    <%= f.number_field :fizz %>
+  </div>
+  <div class="field">
+    <%= f.label :buzz %><br>
+    <%= f.number_field :buzz %>
+  </div>
+  <div class="field">
+    <%= f.label :fizz_frequency %><br>
+    <%= f.text_field :fizz_frequency %>
+  </div>
+  <div class="field">
+    <%= f.label :buzz_frequency %><br>
+    <%= f.number_field :buzz_frequency %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

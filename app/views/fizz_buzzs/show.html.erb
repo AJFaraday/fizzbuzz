@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @fizz_buzz.name %>
+</p>
+
+<p>
+  <strong>Fizz:</strong>
+  <%= @fizz_buzz.fizz %>
+</p>
+
+<p>
+  <strong>Buzz:</strong>
+  <%= @fizz_buzz.buzz %>
+</p>
+
+<p>
+  <strong>Fizz frequency:</strong>
+  <%= @fizz_buzz.fizz_frequency %>
+</p>
+
+<p>
+  <strong>Buzz frequency:</strong>
+  <%= @fizz_buzz.buzz_frequency %>
+</p>
+
+<h1><%= @fizz_buzz.result %></h1>
+
+<%= link_to 'Edit', edit_fizz_buzz_path(@fizz_buzz) %> |
+<%= link_to 'Increment', increment_fizz_buzz_path(@fizz_buzz) %> |
+<%= link_to 'Back', fizz_buzzs_path %>

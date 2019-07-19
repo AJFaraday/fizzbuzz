@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+cp xtra/EL7/etc/systemd/system/fizzbuzz.service /etc/systemd/system/fizzbuzz.service
+cp xtra/EL7/etc/sysconfig/fizzbuzz /etc/sysconfig/fizzbuzz
+cp xtra/EL7/usr/sbin/fizzbuzz /usr/sbin/fizzbuzz
+
+chmod 777 /etc/systemd/system/fizzbuzz.service
+chmod 777 /etc/sysconfig/fizzbuzz
+chmod 777 /usr/sbin/fizzbuzz
+chmod +x /etc/systemd/system/fizzbuzz.service
+chmod +x /etc/sysconfig/fizzbuzz
+chmod +x /usr/sbin/fizzbuzz
+
+systemctl daemon-reload
+

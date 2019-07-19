@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Fizz Buzzs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Fizz</th>
+      <th>Buzz</th>
+      <th>Fizz frequency</th>
+      <th>Buzz frequency</th>
+      <th>Result</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fizz_buzzs.each do |fizz_buzz| %>
+      <tr>
+        <td><%= fizz_buzz.name %></td>
+        <td><%= fizz_buzz.fizz %></td>
+        <td><%= fizz_buzz.buzz %></td>
+        <td><%= fizz_buzz.fizz_frequency %></td>
+        <td><%= fizz_buzz.buzz_frequency %></td>
+        <td><%= fizz_buzz.result %></td>
+        <td><%= link_to 'Show', fizz_buzz %></td>
+        <td><%= link_to 'Edit', edit_fizz_buzz_path(fizz_buzz) %></td>
+        <td><%= link_to 'Increment', increment_fizz_buzz_path(fizz_buzz) %></td>
+        <td><%= link_to 'Destroy', fizz_buzz, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Fizz buzz', new_fizz_buzz_path %>
+<%= link_to 'Generate Fizz buzz', generate_fizz_buzzs_path %>
+<%= link_to 'Increment All', increment_all_fizz_buzzs_path %>

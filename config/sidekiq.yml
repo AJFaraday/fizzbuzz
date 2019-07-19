@@ -1,0 +1,17 @@
+---
+# For use in development
+production:
+  :concurrency: 10
+development:
+  :concurrency: 10
+# Order is significant. First ones take precedence.
+:queues:
+  - default
+  - ordering
+  - requesting
+  - experiments
+  - admin
+  - inventory
+  - bulk_loader
+  - record_sync
+  - slow_admin_tasks

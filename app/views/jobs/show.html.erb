@@ -1,0 +1,17 @@
+<h1>Job: <%= @job.job_class %></h1>
+
+<dl>
+  <dt>Job Class</dt>
+  <dd><%= @job.job_class %></dd>
+  <dt>Arguments</dt>
+  <dd><%= @job.args.inspect %></dd>
+  <dt>Status</dt>
+  <dd id="status"><%= @job.status %></dd>
+</dl>
+
+<h2>Messages</h2>
+
+<p id="indicator"></p>
+<ul id="messages" data-job_id="<%= @job.id %>">
+
+</ul>

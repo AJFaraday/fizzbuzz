@@ -1,0 +1,24 @@
+<h1>Queue: <%= @queue.name %></h1>
+
+<h2>Queued Jobs</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Job ID</th>
+      <th>Class</th>
+      <th>Arguments</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @queue.each do |job| %>
+      <tr>
+        <td><%= job.jid %></td>
+        <td><%= job.args[0]['job_class'] %></td>
+        <td><%= job.args[0]['arguments'].inspect %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+

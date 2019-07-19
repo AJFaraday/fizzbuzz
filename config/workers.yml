@@ -1,0 +1,18 @@
+---
+cascade:
+  concurrency: 1
+  queues:
+    - cascade
+background:
+  concurrency: 5
+  queues:
+    - admin
+    - record_sync
+ui:
+  concurrency: 10
+  queues:
+    - default
+    - ordering
+    - requesting
+    - experiments
+    - inventory
