@@ -10,12 +10,18 @@ require 'timeout'
 class Workers
 
   def Workers.start
+    puts 'starting workers'
     if Workers.pidfiles.any?
       puts "Workers have already started."
     else
       SidekiqLauncher.run_all
       ClockworkLauncher.run
     end
+  rescue => er
+    puts er.message
+    puts er.backtrace
+  ensure
+    Workers.stop
   end
 
   def Workers.stop
@@ -50,6 +56,7 @@ class Workers
   end
 
   def Workers.make_pidfile(name, pid)
+    puts "Making pidfile #{name}"
     path = File.join(Rails.root, 'tmp', 'pids', "worker_#{name}_#{pid}.pid")
     File.open(path, 'w') {|f| f.write(pid)}
   end

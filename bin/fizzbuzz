@@ -1,9 +1,52 @@
+#!/bin/bash
+
+echo "Reached /etc/sbin/fizzbuzz"
+echo $1
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+#
+RETVAL=0
+
 if [ -f /etc/sysconfig/fizzbuzz ]; then
-    . /etc/sysconfig/fizzbuzz
-    cd $FIZZBUZZ_ROOT
+   . /etc/sysconfig/fizzbuzz
 else
-    echo "No /etc/sysconfig/fizzbuzz file system is not configured"
+  echo "Missing /etc/sysconfig/fizzbuzz"
 fi
 
-echo "WE GOT TO THE COMMAND"
-echo "Running $0 $1 $2 $3"
+run_as_user()
+{
+    echo "Run $1 as (ajfaraday)"
+    runuser -l ajfaraday $1 $2 $3 $4
+    RETVAL=$?
+    return $RETVAL
+}
+
+case $1 in
+start)
+    echo "Start"
+    cd $FIZZBUZZ_ROOT
+    rake jobs:start
+    ;;
+restart)
+    echo "Restart"
+    cd $FIZZBUZZ_ROOT
+    rake jobs:start
+    ;;
+stop)
+    echo "Stop"
+    cd $FIZZBUZZ_ROOT
+    run_as_user rake jobs:stop
+    ;;
+status)
+    echo "Status"
+    cd $FIZZBUZZ_ROOT
+    rake jobs:status
+    ;;
+*)
+    echo $"Usage: $0 allowed {start|stop|restart|status} "
+    exit 3
+    ;;
+esac
+
+exit $RETVAL

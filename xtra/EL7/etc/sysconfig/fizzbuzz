@@ -1,3 +1,5 @@
 echo "Setting environmental variables"
 FIZZBUZZ_ROOT=/home/ajfaraday/work/job_test
-FIZZBUZZ_CMD=$FIZZBUZZ_ROOT/script/fizzbuzz
+FIZZBUZZ_CMD=$FIZZBUZZ_ROOT/bin/fizzbuzz
+
+source /opt/rh/rh-ruby24/enable

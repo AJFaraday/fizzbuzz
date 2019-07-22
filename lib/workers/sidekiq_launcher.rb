@@ -12,6 +12,7 @@ class Workers
     end
 
     def SidekiqLauncher.run(name, config)
+      puts "Starting Sidekiq config #{name}"
       SidekiqLauncher.new(name, config).run
     end
 
@@ -25,8 +26,7 @@ class Workers
       cli = Sidekiq::CLI.instance
       args = [
         '-e', 'production',
-        # Logs deprecated. Find out if it has useful info; if so replace, if not remove
-        '-L', "#{Rails.root}/log/sidekiq_#{name}.log",
+        '-r', "#{Rails.root}/config/environment.rb",
         '-c', config['concurrency'].to_s
       ]
       config['queues'].each do |queue|

@@ -21,6 +21,10 @@ gem 'spawnling'
 
 gem 'faker'
 
+gem 'rspec-core'
+gem 'rspec'
+gem 'rspec-rails'
+
 group :development, :test do
   gem 'byebug'
 end

@@ -36,7 +36,6 @@ class ApplicationJob < ActiveJob::Base
 
   def log(msg)
     self.logger.info(msg)
-    puts(msg)
     job.add_message(msg) if job
   end
 
